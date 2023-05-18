@@ -40,6 +40,23 @@
 
 }
 
+.authorschip {
+    cursor: pointer;
+    background-color: rgb(121, 122, 124);
+    border-radius: 20px;
+    padding: 10px;
+   
+    
+}
+
+.authorscontainer {
+    cursor: pointer;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
 img {
     width: 100px;
     height:100px;

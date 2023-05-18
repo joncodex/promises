@@ -51,28 +51,72 @@
 // the Json() function will help to convert the link fetched to array of objects, then the second function will help to generate the codes you needed.
 
 
+
+
+// MY PROJECT
+
+// function getquote() {
+// fetch("https://type.fit/api/quotes")
+//   .then(function(response) {
+//     return response.json();
+//   })
+//   .then(function(data) {  
+
+    
+//     let totalquotes = data.length;
+//     let randomquote = Math.floor(Math.random()*totalquotes)
+//     document.getElementById('quote').innerHTML = data[randomquote].text
+//     document.getElementById('authorspace').innerHTML = 'Written By: ' + data[randomquote].author
+
+
+//   }) }
+
+
+
+
 function getquote() {
-fetch("https://type.fit/api/quotes")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {  
+  let authorscontainer = document.getElementById('authorscontainer');
+  authorscontainer.innerHTML = '';
 
+    fetch("https://type.fit/api/quotes")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {  
+            
+        let totalquotes = data.length;
+        let randomquote = Math.floor(Math.random()*totalquotes)
+        document.getElementById('quote').innerHTML = data[randomquote].text
+        document.getElementById('authorspace').innerHTML = 'Written By: ' + data[randomquote].author
+
+        
+        let authors = [];
+        
+        for (let i = randomquote; i <= randomquote + 5; i++) {
+          let author = data[i].author;
+          if (author != null) {
+            authors.push(author)
+            
+            
+          }
+          
+         
+        }
+        
+
+        authors.map((author)=>{
+          let authorscontainer = document.getElementById('authorscontainer');
+          let authorsdiv = document.createElement('div');
+          authorsdiv.classList.add('authorschip');
+          authorscontainer.appendChild(authorsdiv);
+          authorsdiv.innerHTML = author;
+          
+
+
+        })  
+        
     
-    let totalquotes = data.length;
-    let randomquote = Math.floor(Math.random()*totalquotes)
-    document.getElementById('quote').innerHTML = data[randomquote].text
-    document.getElementById('authorspace').innerHTML = 'Written By: ' + data[randomquote].author
+      })}
 
-
-    
-
-    
-    
-
-
-
-    
-  }) }
-
+      
 
