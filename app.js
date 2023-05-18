@@ -51,16 +51,20 @@
 // the Json() function will help to convert the link fetched to array of objects, then the second function will help to generate the codes you needed.
 
 
+function getquote() {
 fetch("https://type.fit/api/quotes")
   .then(function(response) {
     return response.json();
   })
   .then(function(data) {  
+
+    
     let totalquotes = data.length;
     let randomquote = Math.floor(Math.random()*totalquotes)
     document.getElementById('quote').innerHTML = data[randomquote].text
     document.getElementById('authorspace').innerHTML = 'Written By: ' + data[randomquote].author
 
+
     
 
     
@@ -69,6 +73,6 @@ fetch("https://type.fit/api/quotes")
 
 
     
-  })
+  }) }
 
 
